@@ -1,0 +1,27 @@
+[user]
+	email = vlks@seventest.ru
+	name = Vladimir Kiselev
+[core]
+	editor = mcedit
+[push]
+	default = simple
+[alias]
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+
+	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+
+	cp = cherry-pick
+	st = status -s
+	cl = clone
+	ci = commit
+	co = checkout
+	br = branch 
+#	df = diff --word-diff
+	df = diff
+	dc = diff --cached
+	ai = add --interactive
+
+	sl = stash list
+	sa = stash apply
+	ss = stash save
