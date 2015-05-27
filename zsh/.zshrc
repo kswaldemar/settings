@@ -3530,6 +3530,7 @@ if (( GRMLSMALL_SPECIFIC > 0 )) && isgrmlsmall ; then
 fi
 
 export PATH=/home/vlks/bin:$PATH
+alias smake="sudo make"
 
 zrclocal
 
