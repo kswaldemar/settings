@@ -286,7 +286,7 @@ zrcautoload is-at-least || is-at-least() { return 1 }
 setopt append_history
 
 # import new commands from the history file also in other zsh-session
-is4 && setopt share_history
+#is4 && setopt share_history
 
 # save each command's beginning timestamp and the duration to the history file
 setopt extended_history
@@ -3530,7 +3530,10 @@ if (( GRMLSMALL_SPECIFIC > 0 )) && isgrmlsmall ; then
 fi
 
 export PATH=/home/vlks/bin:$PATH
-alias smake="sudo make"
+CPUS=`nproc`
+alias smake="sudo make -j${CPUS}"
+alias sendpkt='sudo tcpreplay -i dummy0 -t'
+alias runn='sudo ./bm-pcap-run.vlks.sh 2>&1 | tee 1.log'
 
 zrclocal
 

@@ -15,12 +15,15 @@
 	st = status -s
 	cl = clone
 	ci = commit
+	ca = commit --amend
 	co = checkout
 	br = branch 
 #	df = diff --word-diff
 	df = diff
 	dc = diff --cached
+
 	ai = add --interactive
+	ap = add --patch
 
 	sl = stash list
 	sa = stash apply
