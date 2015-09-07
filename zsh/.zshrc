@@ -3531,7 +3531,8 @@ fi
 
 export PATH=/home/vlks/bin:$PATH
 CPUS=`nproc`
-alias smake="sudo make -j${CPUS}"
+export MAKEFLAGS="-j${CPUS}"
+alias smake="sudo make"
 alias sendpkt='sudo tcpreplay -i dummy0 -t'
 alias runn='sudo ./bm-pcap-run.vlks.sh 2>&1 | tee 1.log'
 
