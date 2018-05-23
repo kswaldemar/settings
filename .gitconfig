@@ -5,26 +5,41 @@
 	editor = mcedit
 [push]
 	default = simple
+[pull]
+	rebase = true
 [alias]
-	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-
-	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	hs = log --pretty=format:\"%C(yellow)%h %C(cyan)%ad %C(white)| %s %C(red)%d %C(green)[%an]\" --graph --date=short
+	hist = hs
+	
+	ls = "log --pretty=format:%C(yellow)%h%Cred%d\\ %Creset%s%C(green)\\ [%cn] --decorate"
+	ll = "log --pretty=format:%C(yellow)%h%Cred%d\\ %Creset%s%C(green)\\ [%cn] --decorate --numstat"
 
 	cp = cherry-pick
 	st = status -s
-	cl = clone
+	
 	ci = commit
 	ca = commit --amend
 	co = checkout
+	
 	br = branch 
-#	df = diff --word-diff
+	
 	df = diff
 	dc = diff --cached
-
-	ai = add --interactive
+	
 	ap = add --patch
 
 	sl = stash list
 	sa = stash apply
 	ss = stash save
+	
+	smod = submodule
+	sup = submodule update
+	
+	renew = "!f() { git br -d $1 && git co -b $1 && git co -; }; f"
+	rehard = reset --hard
+	resoft = reset --soft
+	put = merge --no-ff
+	
+	wip = !git commit -a -m \"fake: $(curl -s http://whatthecommit.com/index.txt)\"
+	rbi = "!f() { git rebase -i Head~$1; }; f"
+	
